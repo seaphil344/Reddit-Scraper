@@ -14,7 +14,7 @@ def scroll_to_bottom(driver):
 
 def scrape_comments(url, output_file):
     firefox_options = Options()
-    #firefox_options.add_argument("-headless")
+    firefox_options.add_argument("-headless")
 
     driver_service = FirefoxService()
     driver = webdriver.Firefox(service=driver_service, options=firefox_options)
@@ -48,7 +48,7 @@ def scrape_comments(url, output_file):
         print(f"Error: {e}")
     finally:
         output_file_csv = output_file + ".csv"
-        with open(output_file, 'w', newline='') as csvfile:
+        with open(output_file_csv, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(['Comment Text'])
             for comment_text in div_contents:
